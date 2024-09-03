@@ -1,0 +1,526 @@
+<html>
+    <head>
+    <title>Page Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <script>
+        
+        var c;
+        var g;
+    function line(x1,y1,x2,y2){
+            g.beginPath();
+            g.moveTo(x1,y1);
+            g.lineTo(x2,y2);
+            g.stroke();
+    }
+
+    function grid(){
+        for(let i =0; i<=600; i+=60){
+            g.beginPath();
+            g.moveTo(i,0);
+            g.lineTo(i,600);
+            g.moveTo(0,i);
+            g.lineTo(600,i);
+            g.stroke();
+            if(i == 300-60){
+                g.strokeStyle = "#ff0000";
+            }else{
+                g.strokeStyle = "#000000"; 
+            }   
+        }
+        
+    }
+
+    function circle(){
+        // let step = 0.1;
+        // for(let i=0; i<=2*Math.PI;i+=step){
+        //     g.beginPath();
+        //     g.moveTo(270*Math.cos(i)+300,270*Math.sin(i)+300);
+        //     g.lineTo(270*Math.cos(i+0.99)+300,270*Math.sin(i+0.99)+300);
+        //     g.stroke();
+
+        // }
+        // let step2 = 0.009;
+        // for(let i=0; i<=2*Math.PI;i+=step2){
+        //     g.beginPath();
+        //     g.moveTo(240*Math.cos(i)+300,240*Math.sin(i)+300);
+        //     g.lineTo(240*Math.cos(i+0.07)+300,240*Math.sin(i+0.07)+300);
+        //     g.stroke();
+
+        // }
+
+
+        g.save();
+        let step = 0.10472;
+        for(let i=0; i<=2*Math.PI;i+=step){
+            g.beginPath();
+            g.moveTo(270*Math.cos(i)+300,270*Math.sin(i)+300);
+            g.lineTo(240*Math.cos(i)+300,240*Math.sin(i)+300);
+            g.stroke();
+
+        }
+
+
+        let step2 = 0.10472;
+        for(let i=0; i<=2*Math.PI;i+=step2){
+            g.beginPath();
+            g.lineWidth = 1;
+            g.moveTo(262*Math.cos(i+1.1)+300,262*Math.sin(i+1.1)+300);
+            g.lineTo(232*Math.cos(i+1.1)+300,232*Math.sin(i+1.1)+300);
+            g.stroke();
+        }
+
+        let step3 = 0.10472;
+        for(let i=0; i<=2*Math.PI;i+=step3){
+            g.beginPath();
+            g.lineWidth = 1;
+            g.moveTo(270*Math.cos(i)+300,270*Math.sin(i)+300);
+            g.lineTo(262*Math.cos(i+0.05)+300,262*Math.sin(i+0.05)+300);
+            g.stroke();
+
+        }
+
+        let step4 = 0.10472;
+        for(let i=0; i<=2*Math.PI;i+=step4){
+            g.beginPath();
+            g.lineWidth = 1;
+            g.moveTo(262*Math.cos(i+0.05)+300,262*Math.sin(i+0.05)+300);
+            g.lineTo(270*Math.cos(i+0.1)+300,270*Math.sin(i+0.1)+300);
+            
+            g.stroke();
+
+        }
+
+        ////
+
+        let step5 = 0.10472;
+        for(let i=0; i<=2*Math.PI;i+=step5){
+            g.beginPath();
+            g.lineWidth = 1;
+            g.moveTo(240*Math.cos(i)+300,240*Math.sin(i)+300);
+            g.lineTo(232*Math.cos(i+0.05)+300,232*Math.sin(i+0.05)+300);
+            g.stroke();
+
+        }
+
+        let step6 = 0.10472;
+        for(let i=0; i<=2*Math.PI;i+=step6){
+            g.beginPath();
+            g.lineWidth = 1;
+            g.moveTo(232*Math.cos(i+0.05)+300,232*Math.sin(i+0.05)+300);
+            g.lineTo(240*Math.cos(i+0.1)+300,240*Math.sin(i+0.1)+300);
+            
+            g.stroke();
+
+        }
+        
+
+g.restore();
+    }
+
+    function r_circle(){
+        g.save();
+        g.beginPath();
+        g.lineWidth = 2.5;
+        g.arc(300,300, 220, 0, 2*Math.PI);
+        g.stroke();
+        g.beginPath();
+        g.lineWidth = 2.5;
+        g.arc(300,300, 212, 0, 2*Math.PI);
+        g.stroke();
+
+        g.beginPath();
+        g.lineWidth = 1;
+        g.arc(300,300, 198, 0, 2*Math.PI);
+        g.stroke();
+
+        g.beginPath();
+        g.lineWidth = 1;
+        g.arc(300,300, 192, 0, 2*Math.PI);
+        g.stroke();
+
+        let step = 0.10472;
+        for(let i=0; i<=2*Math.PI;i+=step){
+            g.beginPath();
+            g.moveTo(198*Math.cos(i)+300,198*Math.sin(i)+300);
+            g.lineTo(192*Math.cos(i)+300,192*Math.sin(i)+300);
+            g.stroke();
+
+        }
+
+        let step2 = 0.523599;
+        for(let i=0; i<=2*Math.PI;i+=step2){
+            // g.beginPath();
+            // g.moveTo(186*Math.cos(i)+300,186*Math.sin(i)+300);
+            // g.lineTo(166*Math.cos(i)+300,166*Math.sin(i)+300);
+            // g.stroke();
+
+            g.beginPath();
+
+        // Calculate the coordinates for the line
+        let x1 = 180 * Math.cos(i) + 300;
+        let y1 = 180 * Math.sin(i) + 300;
+        let x2 = 146 * Math.cos(i) + 300;
+        let y2 = 146 * Math.sin(i) + 300;
+
+        // Vector for the line
+        let dx = x2 - x1;
+        let dy = y2 - y1;
+
+        // Calculate the unit vector perpendicular to the line
+        let length = Math.sqrt(dx * dx + dy * dy);
+        let ux = -dy / length;
+        let uy = dx / length;
+
+        //think
+        //g.lineWidth = 2.5;
+
+        // Draw the rectangle as a stroke
+        g.moveTo(x1 + 5 * ux, y1 + 5 * uy);
+        g.lineTo(x1 - 5 * ux, y1 - 5 * uy);
+        g.lineTo(x2 - 5 * ux, y2 - 5 * uy);
+        g.lineTo(x2 + 5 * ux, y2 + 5 * uy);
+        g.closePath();
+        g.stroke();
+
+        }
+
+        //center
+        g.beginPath();
+        g.lineWidth = 7.5;
+        g.arc(300,300, 6, 0, 2*Math.PI);
+        g.stroke();
+
+        g.save();
+
+    }
+
+    function chassy(){
+       // g.save();
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(155,520);
+            g.lineTo(155,600);
+            g.stroke();
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(120,598);
+            g.lineTo(155,598);
+            g.stroke();
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(447,520);
+            g.lineTo(447,600);
+            g.stroke();
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(447,598);
+            g.lineTo(482,598);
+            g.stroke();
+
+            //top
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(155,80);
+            g.lineTo(155,0);
+            g.stroke();
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(120,1);
+            g.lineTo(155,1);
+            g.stroke();
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(447,80);
+            g.lineTo(447,0);
+            g.stroke();
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(447,1);
+            g.lineTo(482,1);
+            g.stroke();
+            
+            //lines
+
+            //line 1
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(120,598);
+            g.lineTo(42,385);
+            g.stroke();
+
+            //line 2
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(120,0);
+            g.lineTo(42,215);
+            g.stroke();
+
+            //connector
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(42, 385);
+            g.quadraticCurveTo(10, 300, 42, 215);
+
+            g.stroke();
+
+            //line 3
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(482,598);
+            g.lineTo(558,385);
+            g.stroke();
+
+            //line 4
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(482,0);
+            g.lineTo(558,215);
+            g.stroke();
+
+            g.lineWidth = 2.5;
+            g.beginPath();
+            g.moveTo(558, 385);
+            g.quadraticCurveTo(590, 300, 558, 215);  
+
+            g.stroke();
+            g.lineWidth = 1;
+          //  g.restore();
+
+
+
+        
+    }
+
+    function addText() {
+    g.font = "bold 8px 'EB Garamond', serif";
+    //g.font = "20px Arial";
+    
+    g.fillStyle = "#000000"; 
+    g.fillText("SUPERLATIVE CHRONOMETER", 242, 380);
+    g.fillText("SUPERLATIVE CHRONOMETER", 242, 380);
+    g.fillText("OFFICIALLY CERTIFIED", 256, 389);
+    g.fillText("OFFICIALLY CERTIFIED", 256, 389);
+
+    g.font = "bold 11px 'EB Garamond', serif";
+    g.fillText("OYSTER PERPETUAL", 248, 241);
+    g.fillText("OYSTER PERPETUAL", 248, 241);
+
+    g.font = "bold 15px 'EB Garamond', serif";
+    g.fillText("DAY-DATE", 263, 254);
+    g.font = "bold 15px 'EB Garamond', serif";
+    g.fillText("LDL", 285, 270);
+
+        //white rect
+        g.fillStyle = "#FFFFFF";
+        g.fillRect(261, 485, 78, 4);
+        g.fillRect(261, 488, 78, 4);
+        g.fillRect(261, 490, 78, 4);
+        g.fillRect(261, 492, 78, 4);
+        g.fillRect(261, 494, 78, 4);
+        g.fillRect(261, 496, 78, 4);
+        g.fillRect(259.5, 493, 80.5, 4);
+
+        g.fillStyle = "#000000"; 
+        g.font = "bold 8px 'EB Garamond', serif";
+        g.fillText("SWISS  MADE", 278, 497);
+        g.fillText("SWISS  MADE", 278, 497);
+
+        g.font = "bold 25px 'EB Garamond', serif";
+        g.fillText("ROLEX", 256, 230);
+
+        
+
+            //white rect
+
+
+            let i = 0.523599*8.16;
+            g.beginPath();
+            g.moveTo(180 * Math.cos(i) + 300,180 * Math.sin(i) + 300);
+            g.lineTo(160 * Math.cos(i) + 300,160 * Math.sin(i) + 300);
+            g.stroke();
+
+            let i2 = 0.562599*9.16;
+            g.beginPath();
+            g.moveTo(180 * Math.cos(i2) + 300,180 * Math.sin(i2) + 300);
+            g.lineTo(160 * Math.cos(i2) + 300,160 * Math.sin(i2) + 300);
+            g.stroke();
+
+ 
+
+
+
+
+}
+
+function drawHands() {
+    let d = new Date();
+
+    // Adjust to South African time (UTC+2)
+    d.setHours(d.getHours());
+
+    let hours = d.getHours() % 12; // 12-hour format
+    let minutes = d.getMinutes();
+    let seconds = d.getSeconds();
+    let milliseconds = d.getMilliseconds();
+
+    let secondTheta = ((seconds + milliseconds / 1000) * 6 - 90) * Math.PI / 180;
+let minuteTheta = ((minutes + seconds / 60) * 6 - 90) * Math.PI / 180;
+let hourTheta = (((hours % 12) + minutes / 60) * 30 - 90) * Math.PI / 180;
+
+    const secondHandWidth = 10;
+    const minuteHandWidth = 8;
+    const hourHandWidth = 6;
+
+    const initialSecondHandLength = 110;
+    const initialMinuteHandLength = 100;
+    const initialHourHandLength = 70;
+
+    const newSecondHandLength = initialSecondHandLength + 60;
+    const newMinuteHandLength = initialMinuteHandLength + 40;
+    const newHourHandLength = initialHourHandLength + 30;
+
+    function drawHand(ctx, centerX, centerY, length, width, angle, fillColor, outlineColor) {
+        const endX = length * Math.cos(angle) + centerX;
+        const endY = length * Math.sin(angle) + centerY;
+
+        const halfWidth = width / 2;
+
+        const x1 = centerX - halfWidth * Math.sin(angle);
+        const y1 = centerY + halfWidth * Math.cos(angle);
+        const x2 = endX - halfWidth * Math.sin(angle);
+        const y2 = endY + halfWidth * Math.cos(angle);
+        const x3 = endX + halfWidth * Math.sin(angle);
+        const y3 = endY - halfWidth * Math.cos(angle);
+        const x4 = centerX + halfWidth * Math.sin(angle);
+        const y4 = centerY - halfWidth * Math.cos(angle);
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.lineTo(x3, y3);
+        ctx.lineTo(x4, y4);
+        ctx.closePath();
+
+        if (fillColor) {
+            ctx.fillStyle = fillColor;
+            ctx.fill();
+        }
+
+        if (outlineColor) {
+            ctx.strokeStyle = outlineColor;
+            ctx.stroke();
+        }
+    }
+
+    g.save();
+    g.clearRect(0, 0, c.width, c.height);  // Clear the canvas
+
+    // Redraw static elements
+    
+    r_circle();
+    
+    chassy();
+    circle();
+    addText();
+    var img = new Image();
+    img.src = 'https://raw.githubusercontent.com/DARILETS/Rolex/main/rolex_cropped.png';
+    g.drawImage(img, 282.5, 167, 19 * 1.8, 25 * 1.8);
+
+    // Draw the hands
+    drawHand(g, 300, 300, newSecondHandLength, secondHandWidth, secondTheta, "#000000", null);
+    drawHand(g, 300, 300, newMinuteHandLength, minuteHandWidth, minuteTheta, "#FFFFFF", "#000000");
+    drawHand(g, 300, 300, newHourHandLength, hourHandWidth, hourTheta, "#FFFFFF", "#000000");
+
+    // Draw the center of the clock
+    g.beginPath();
+    g.lineWidth = 8.5;
+    g.arc(300, 300, 3, 0, 2 * Math.PI);
+    g.stroke();
+
+    g.beginPath();
+    g.strokeStyle = "#FFFFFF";
+    g.lineWidth = 8.5;
+    g.arc(300, 300, 0.9, 0, 2 * Math.PI);
+    g.stroke();
+    g.restore();
+
+    // Schedule the next update
+    setTimeout(drawHands, 10);
+}
+
+
+
+
+
+function init() {
+    c = document.getElementById("myCanvas");
+    g = c.getContext("2d");
+
+    // Draw static elements
+    var img = new Image();
+    img.onload = function() {
+        g.drawImage(img, 282.5, 167, 19 * 1.8, 25 * 1.8); // (image, x, y, width, height)
+        drawHands();  // Start drawing hands with animation
+    };
+    img.src = 'https://raw.githubusercontent.com/DARILETS/Rolex/main/rolex_cropped.png';
+}
+
+setInterval(init, 1000);
+
+
+
+
+
+
+    //setInterval(init, 1000);
+    </script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: "Garamond", serif; /* Set the font to Garamond */
+        }
+
+        p {
+            margin: 0;
+        }
+
+        canvas {
+            border: 1px solid #d3d3d3;
+        }
+    </style>
+    </head>
+
+    <body onload="init()">
+    <h1>ROLEX DAY-DATE</h1>
+    <canvas id="myCanvas" width="600" height="600"
+    style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    </body>
+    <script>
+        let d = new Date();
+        document.getElementById("some").innerHTML = d;
+        
+    </script>
+</html>
